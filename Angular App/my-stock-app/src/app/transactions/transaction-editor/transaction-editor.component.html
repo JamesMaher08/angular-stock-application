@@ -1,0 +1,79 @@
+<!-- <p>transaction-editor works!</p> -->
+<form [formGroup]="addTransactionForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col-sm-auto">
+            <label for="type">Type</label>
+            <select class="form-control" formControlName="type" id="type" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                <option value="" selected disabled>Choose...</option>
+                <option value="1">Buy</option>
+                <option value="2">Sell</option>
+                <option value="3">Dividend Payment</option>
+            </select>
+        </div>
+        <div class="form-group col">
+            <label for="symbol">Symbol</label>
+            <input type="text" formControlName="symbol" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.symbol.errors }"
+            />
+        </div>
+        <div class="form-group col">
+            <label for="numberOfShares"># of Shares</label>
+            <input type="text" formControlName="numberOfShares" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numberOfShares.errors }"
+            />
+        </div>
+        <div class="form-group col">
+            <label for="mktPrice">Market Price</label>
+            <input type="text" formControlName="mktPrice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mktPrice.errors }"
+            />
+        </div>
+        <div class="form-group col">
+            <label for="dollarAmount">$ Amount</label>
+            <input type="text" formControlName="dollarAmount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dollarAmount.errors }"
+            />
+        </div>
+        <div class="form-group col-sm-auto">
+            <label for="date">Date</label>
+            <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+        </div>
+        <div class="form-group col">
+            <label>&nbsp;</label>
+            <button [disabled]="loading" class="btn btn-primary btn-block">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Submit
+            </button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Symbol</th>
+            <th># of Shares</th>
+            <th>Market Price</th>
+            <th>$ Amount</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of transactions">
+            <td>{{t.type}}</td>
+            <td>{{t.symbol}}</td>
+            <td>{{t.numberOfShares}}</td>
+            <td>{{t.marketPrice | currency}}</td>
+            <td>{{t.amountInDollars | currency}}</td>
+            <td>{{t.date | date:'medium'}}</td>
+            <td>
+                <div style="float: right;">
+                    <button class="btn btn-sm btn-secondary mr-2">
+                        <i class = "material-icons" style="font-size: 1em;">edit</i>
+                    </button>
+                    <button (click)="deleteTransaction(t)" class="btn btn-sm btn-danger">
+                        <i class="material-icons" style="font-size: 1em;">delete</i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

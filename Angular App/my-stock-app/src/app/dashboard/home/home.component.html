@@ -1,0 +1,78 @@
+<!-- <p>home works!</p> -->
+
+<div id="home-container">
+    <div class="row">
+        <div id="left-column" class="col-4">
+            <div id="portfolio-name">
+                <h5>{{portfolioName | uppercase}}</h5>
+                <h5>{{hoveredHoldingSymbol}} - {{hoveredHoldingEquity | currency}}</h5>
+            </div>
+            <div style="display: block;">
+                <canvas baseChart height="200" [data]="data" [labels]="labels" [chartType]="type" [legend]="false" (chartHover)="chartHovered($event)"
+                    (mouseleave)="clearHovered()">
+                </canvas>
+            </div>
+            <div id="account-balance" class="card">
+                <div style="text-align: center" class="card-body">
+                    <h5>Account Balance</h5>
+                    <h5>{{accountBalance | currency}}</h5>
+                </div>
+            </div>
+            <div id="holding-detail" class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+        <div id="right-column" class="col-8">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>Shares</th>
+                        <th>Equity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let h of tableHoldings" (mouseenter)="rowEnter(h)" (mouseleave)="clearHovered()" (click)="onRowClick(h)">
+                        <td>
+                            <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/{{h.symbol}}.png">
+                            <span class="spacer">{{getSymbolName(h.symbol)}}</span>
+                        </td>
+                        <td>{{h.symbol}}</td>
+                        <td>{{h.numberOfShares}}</td>
+                        <td>{{h.equity | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+    <div class="text-center mt-4">
+        <h6>NOTE: As of 2021 IEX has deprecated the sandbox API providing test data for this application</h6>
+        <p>Click the button below to generate a mock portfolio</p>
+    
+        <!-- <div>
+            <button (click)="buildPortfolio()" class="btn btn-sm btn-success">
+                <span>Display</span>
+            </button>
+        </div> -->
+        <div>
+            <button (click)="createMockUserPortfolio()" class="btn btn-sm btn-success">
+                <span>Create Mock Portfolio</span>
+            </button>
+            <!-- <button (click)="deleteAllPortfolios()" class="btn btn-sm btn-success">
+                <span>Delete All</span>
+            </button> -->
+        </div>
+    </div>
+    <!-- <p>TODO - Need to be able to register/create a portfolio</p>
+    <p>TODO - implement the delete transaction for the portfolio</p> -->
+
+    
+</div>

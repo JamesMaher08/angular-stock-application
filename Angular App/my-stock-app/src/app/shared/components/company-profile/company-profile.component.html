@@ -1,0 +1,18 @@
+<!-- <p>company-profile works!</p> -->
+<input type="text" [(ngModel)]="company" placeholder="name"/>
+<button (click)="getCompany(company)">Get Company</button>
+
+{{company}}
+<br/>
+<br/>
+{{companyResults | json}}
+
+<button (click)="getAllSymbolNames()">Get All</button>
+<button (click)="getMocks()">Get Mocks</button>
+<button (click)="clear()">Clear</button>
+<button (click)="findSymbolName(company)">Find Name</button>
+
+
+<!-- {{allSymbolNames | json}} -->
+
+{{symbolName}}

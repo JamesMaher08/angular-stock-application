@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <!--navbar-dark bg-dark-->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">Stocks App</a>
+    </div>
+    <div class="navbar-nav">
+        <a *ngIf="user" class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <!-- <a *ngIf="user" class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a> -->
+        <a *ngIf="user" class="nav-item nav-link" routerLink="/transactions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Transactions</a>
+        <a *ngIf="user" class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <a *ngIf="user" class="nav-item nav-link" id="logout" (click)="logout()">Logout</a>
+    </div>
+    <div *ngIf="user" class="search-container">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchText" (keyup.enter)="search(searchText)">
+    </div>
+</nav>
+<!--New Navbar-->
+<!-- <nav class="topnav navbar-dark bg-dark">
+    <div class="navbar-header">
+        <a id="stocks" class="navbar-brand" href="/">Stocks</a>
+    </div>
+    <a *ngIf="user" class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a *ngIf="user" class="nav-item nav-link" routerLink="/transactions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Transactions</a>
+    <a *ngIf="user" class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+    <a *ngIf="user" class="nav-item nav-link" (click)="logout()">Logout</a>
+    <div class="search-container">
+        <input type="text" placeholder="Search...">
+    </div>
+</nav> -->
+
+<!-- main app container -->
+<div class="app-container">
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+</div>
+
+<!-- credits -->
+<div class="text-center mt-4">
+    <p>
+        <a href="https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial" target="_top">Angular 10 - User Registration and Login Example & Tutorial</a>
+    </p>
+</div>
+
+<div class="container">
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img class="mb-2" src="stonks.ico" alt="" width="24" height="24">
+                <small class="d-block mb-3 text-muted">&copy; 2019-2020</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Tech Stack</h5>
+                <ul class="list-unstyled text-small">
+                    <li>
+                        <a class="text-muted" href="https://angular.io/">Angular</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://cherrypy.org/">CherryPy</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://getbootstrap.com/">Bootstrap</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://iexcloud.io/console">IEX Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li>
+                        <a class="text-muted" href="https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial">Registration and Login</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://medium.com/codingthesmartway-com-blog/angular-chart-js-with-ng2-charts-e21c8262777f">NG2 Charts Example</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://iexcloud.io/console">IEX Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://stackoverflow.com/questions/46071802/highlight-doughnut-segment-on-mouseenter-generatelegend-chartjs-2">Synchronize highlight on mouse enter</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://openbase.io/js/ng2-charts/documentation">NG2 Chart OpenBase Docs</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://valor-software.com/ng2-charts/">NG2 Chart Docs</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li>
+                        <a class="text-muted" href="#">Team</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Locations</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Privacy</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Terms</a>
+                    </li>
+                    <br/>
+                    <h5>TODOs</h5>
+                    <li>
+                        <a class="text-muted" href="https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72">Implement SVG donut chart</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://css-tricks.com/building-a-donut-chart-with-vue-and-svg/">SVG donut CSS tricks</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://github.com/iexg/IEX-API/issues/195">Get all Ticker Symbols</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://api.iextrading.com/1.0/ref-data/symbols">IEX all symbols api call</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="https://medium.com/@bartclaeys/how-to-export-your-robinhood-stocks-fc8245b3d118">Read transactions from broker (excel?)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
