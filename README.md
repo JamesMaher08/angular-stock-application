@@ -14,8 +14,6 @@ In another terminal
 Access the stock application by navigating to localhost:4200
 
 
-## Navigating the Stock Application
-
 ## Account Registration
 The first thing you will see when accessing the application url is a login screen. You will need to register an account before you will be able to access the rest of the site.
 
