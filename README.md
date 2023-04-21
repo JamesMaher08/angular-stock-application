@@ -1,7 +1,7 @@
 README
 
 ## Setup
-#To run stocks application:
+# To run stocks application:
 
 1. Run the python backend 
 	..\Stock Application>python app.py
@@ -17,7 +17,7 @@ In another terminal
 Access the stock application by navigating to localhost:4200
 
 
-### Navigating the Stock Application
+# Navigating the Stock Application
 
 ## Account Registration
 The first thing you will see when accessing the application url is a login screen. You will need to register an account before you will be able to access the rest of the site.
@@ -39,12 +39,12 @@ By default as a new user you don't have a portfolio so nothing appears on the ma
 
 
 
-# IEX Cloud
+## IEX Cloud
 Unfortunately IEX Cloud, who is the provider of the stock market data used in the application, discontinued support for their free sandbox testing API in 2019 and so some of the functionality of the application is no longer function such as the search function, as well as any additional company/symbol data that would have been returned from searching.
 
 
 
-
+## 
 This project was way to explore my interest in Angular, Python, and the stock market all at the same time.
 	
 Ref Project -> https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial
